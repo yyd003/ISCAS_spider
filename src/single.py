@@ -88,7 +88,7 @@ def getNews(url, text, fr0m) -> news:
                     image = image.replace(r"../", '')
                     image = r'http://www.cbdio.com/' + image
                     line.images += str(image)
-                    line.images += '\n'
+                    line.images += ';'
 
         line.url = url
         line.publish_time = result['publish_time'][:-3]
