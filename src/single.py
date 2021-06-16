@@ -77,7 +77,8 @@ def getNews(url, text, fr0m) -> news:
                     os.makedirs(os.path.abspath(r"./html/"))
                 file = os.path.abspath(r"./html/" + _id[0])
                 f = open(file, "wb+")
-                f.write(etree.tostring(i, encoding='ISO-8859-1'))
+                f.write(etree.tostring(i, encoding='utf-8'))
+                # f.write(etree.tostring(i, encoding='ISO-8859-1')) #for Win
                 f.close()
 
         line.title = str(result['title'])
