@@ -1,4 +1,4 @@
-from src.spider import spider
+from spider import spider
 
 
 def main():
@@ -9,8 +9,8 @@ def main():
     url2 = "http://www.cbdio.com/node_2782.htm"  # reports
     # bigdata_expo_paper = newspaper.build(url, language=language, memoize_articles=False)
     # cbdio_paper = newspaper.build(url0, language=language, memoize_articles=False)
-    # spider(url0, "cbdio_info")
-    # spider(url1, "cbdio_cases")
+    spider(url0, "cbdio_info")
+    spider(url1, "cbdio_cases")
     spider(url2, "cbdio_reports")
 
 

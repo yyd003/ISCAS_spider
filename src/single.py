@@ -56,9 +56,11 @@ def getNews(url, text, fr0m) -> news:
             info = tree.xpath("//p [@class = 'cb-article-info']")
             qrcode = tree.xpath("//p [@align = 'center']")
             meta = tree.xpath("//meta[@name = 'description']/@content")
-            line.description = meta[0]
+            if len(meta) != 0:
+                line.description = meta[0]
             meta = tree.xpath("//meta[@name = 'biaotitu']/@content")
-            line.media_thumb = "http://www.cbdio.com/image" + meta[0][5:]
+            if len(meta) != 0:
+                line.media_thumb = "http://www.cbdio.com/image" + meta[0][5:]
 
             for i in h1:
                 i.getparent().remove(i)
