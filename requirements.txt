@@ -1,0 +1,4 @@
+gne==0.2.6
+lxml==4.6.3
+newspaper3k==0.2.8
+XlsxWriter==1.4.4

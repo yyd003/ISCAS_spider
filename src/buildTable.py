@@ -1,13 +1,14 @@
-import xlwt
+import xlsxwriter as xlwt
 import datetime
 
 
 def buildTable(lines, fr0m):
-    wb = xlwt.Workbook()
+    wb = xlwt.Workbook(str(datetime.datetime.now().year) + str(datetime.datetime.now().month) + str(datetime.datetime.now().day) +
+                       str(fr0m) + '_news.xlsx')
 
     # 新增两个表单页
-    sh1 = wb.add_sheet('news')
-    sh2 = wb.add_sheet('about')
+    sh1 = wb.add_worksheet('news')
+    sh2 = wb.add_worksheet('about')
 
     # 然后按照位置来添加数据,第一个参数是行，第二个参数是列
     # 写入第一个sheet
@@ -39,5 +40,4 @@ def buildTable(lines, fr0m):
         sh2.write(1, 1, "0")
     sh2.write(1, 0, str(datetime.datetime.now()))
     # 最后保存文件即可
-    wb.save(str(datetime.datetime.now().year) + str(datetime.datetime.now().month) + str(datetime.datetime.now().day) +
-            str(fr0m) + '_news.xls')
+    wb.close()

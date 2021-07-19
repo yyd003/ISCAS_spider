@@ -71,15 +71,16 @@ def getNews(url, text, fr0m) -> news:
             except IndexError:
                 pass
             for i in t:
-                _id = re.findall(r"content_(.*)", url)
-                line.content = _id[0]
-                if not os.path.exists(os.path.abspath(r"./html/")):  # 判断是否存在文件夹如果不存在则创建为文件夹
-                    os.makedirs(os.path.abspath(r"./html/"))
-                file = os.path.abspath(r"./html/" + _id[0])
-                f = open(file, "wb+")
-                f.write(etree.tostring(i, encoding='utf-8'))
-                # f.write(etree.tostring(i, encoding='ISO-8859-1')) #for Win
-                f.close()
+                line.content += etree.tostring(i, encoding='utf-8').decode('utf-8', 'ignore')
+#                 _id = re.findall(r"content_(.*)", url)
+#                 line.content = _id[0]
+#                 if not os.path.exists(os.path.abspath(r"./html/")):  # 判断是否存在文件夹如果不存在则创建为文件夹
+#                     os.makedirs(os.path.abspath(r"./html/"))
+#                 file = os.path.abspath(r"./html/" + _id[0])
+#                 f = open(file, "wb+")
+#                 f.write(etree.tostring(i, encoding='utf-8'))
+#                 # f.write(etree.tostring(i, encoding='ISO-8859-1')) #for Win
+#                 f.close()
 
         line.title = str(result['title'])
         if result['images']:
